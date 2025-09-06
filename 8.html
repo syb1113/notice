@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>君莲会验证码</title>
 </head>
 
@@ -63,6 +64,7 @@
 
     .verify-box-inner {
         width: 90%;
+        max-width: 50rem;
     }
 
     .code-card {
@@ -73,7 +75,7 @@
         box-shadow: 0 .625rem 1.125rem .125rem rgba(187, 188, 195, 0.2);
         border-radius: .625rem;
         box-sizing: border-box;
-        margin: .625rem 1.25rem 2.5rem 1.25rem;
+        margin: 2.5rem 3.125rem 3.75rem 3.125rem;
         position: relative;
         display: flex;
         flex-direction: column;
@@ -94,7 +96,7 @@
     }
 
     .logo-img {
-        margin: 0 0 0 1.25rem !important;
+        margin: 0 0 0 3.125rem !important;
         width: 9.375rem;
         height: 3.375rem;
         align-self: flex-start;
@@ -176,11 +178,187 @@
     }
 
     .bottom-box>img {
+        width: 100%;
+        height: auto;
         min-width: 13rem;
         max-width: 19.25rem;
         margin-top: 1.25rem;
-
     }
 
+    /* 平板设备 (768px - 1024px) */
+    @media screen and (max-width: 1024px) {
+        .verify-box {
+            padding: 1.875rem 0 !important;
+            min-height: 56.25rem;
+        }
+
+        .verify-box-inner {
+            width: 95%;
+        }
+
+        .code-card {
+            padding: 2.5rem;
+            margin: 1.875rem 2.5rem 3.125rem 2.5rem;
+            min-height: 37.5rem;
+        }
+
+        .logo-img {
+            width: 8.125rem;
+            height: 2.8125rem;
+            margin: 0 0 0 2.5rem !important;
+        }
+
+        .top-msg {
+            font-size: 1.75rem;
+        }
+
+        .code-card .notice-text {
+            font-size: 1.375rem;
+            margin-bottom: 1.5625rem !important;
+        }
+
+        .msg {
+            font-size: 1.125rem;
+            line-height: 1.75rem;
+        }
+
+        .verify-content {
+            margin-bottom: 3.75rem;
+        }
+    }
+
+    /* 手机设备 (最大 768px) */
+    @media screen and (max-width: 768px) {
+        .verify-box {
+            padding: 1.25rem 0 !important;
+            min-height: 43.75rem;
+            background-size: cover;
+        }
+
+        .verify-box-inner {
+            width: 98%;
+        }
+
+        .code-card {
+            padding: 1.5625rem;
+            margin: 1.25rem 1.875rem 2.5rem 1.875rem;
+            min-height: 31.25rem;
+            border-radius: .5rem;
+        }
+
+        .logo-img {
+            width: 6.875rem;
+            height: 2.4375rem;
+            margin: 0 0 0 1.875rem !important;
+        }
+
+        .top-msg {
+            font-size: 1.5rem;
+            margin-bottom: .9375rem !important;
+        }
+
+        .code-card .notice-text {
+            font-size: 1.125rem;
+            margin-bottom: 1.25rem !important;
+            line-height: 1.625rem;
+        }
+
+        .msg {
+            font-size: 1rem;
+            line-height: 1.5rem;
+            margin-bottom: .375rem;
+        }
+
+        .verify-content {
+            margin-bottom: 2.5rem;
+        }
+
+        .bottom-box>img {
+            max-width: 15.625rem;
+            margin-top: .9375rem;
+        }
+    }
+
+    /* 小屏手机设备 (最大 480px) */
+    @media screen and (max-width: 480px) {
+        .verify-box {
+            padding: .9375rem 0 !important;
+            min-height: 37.5rem;
+        }
+
+        .verify-box-inner {
+            width: 100%;
+        }
+
+        .code-card {
+            padding: 1.25rem;
+            margin: .9375rem 1.25rem 1.875rem 1.25rem;
+            min-height: 25rem;
+            border-radius: .375rem;
+        }
+
+        .logo-img {
+            width: 5.625rem;
+            height: 2rem;
+            margin: 0 0 0 1.25rem !important;
+        }
+
+        .top-msg {
+            font-size: 1.25rem;
+            margin-bottom: .75rem !important;
+        }
+
+        .code-card .notice-text {
+            font-size: 1rem;
+            margin-bottom: 1.125rem !important;
+            line-height: 1.5rem;
+        }
+
+        .msg {
+            font-size: .875rem;
+            line-height: 1.375rem;
+            margin-bottom: .3125rem;
+        }
+
+        .verify-content {
+            margin-bottom: 1.875rem;
+        }
+
+        .bottom-box>img {
+            max-width: 12.5rem;
+            margin-top: .75rem;
+        }
+    }
+
+    /* 超小屏设备 (最大 320px) */
+    @media screen and (max-width: 320px) {
+        .code-card {
+            padding: .9375rem;
+            margin: .625rem .9375rem;
+        }
+
+        .logo-img {
+            width: 5rem;
+            height: 1.75rem;
+        }
+
+        .top-msg {
+            font-size: 1.125rem;
+        }
+
+        .code-card .notice-text {
+            font-size: .875rem;
+            line-height: 1.25rem;
+        }
+
+        .msg {
+            font-size: .75rem;
+            line-height: 1.125rem;
+        }
+
+        .bottom-box>img {
+            max-width: 11.25rem;
+        }
+    }
 
 </style>

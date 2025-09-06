@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>君莲会验证码</title>
 </head>
 
@@ -63,17 +64,17 @@
 
     .verify-box-inner {
         width: 90%;
+        max-width: 800px;
     }
 
     .code-card {
         padding: 50px;
-        /* max-width: 700px; */
         min-height: 802px;
         background: #ffffff;
         box-shadow: 0 10px 18px 2px rgba(187, 188, 195, 0.2);
         border-radius: 10px;
         box-sizing: border-box;
-        margin: 10px 20px 40px 20px;
+        margin: 40px 50px 60px 50px;
         position: relative;
         display: flex;
         flex-direction: column;
@@ -89,7 +90,7 @@
     }
 
     .logo-img {
-        margin: 0 0 0 20px !important;
+        margin: 0 0 0 50px !important;
         width: 100%;
         height: auto;
         max-width: 150px;
@@ -154,5 +155,178 @@
         height: auto;
         max-width: 308px;
         margin-top: 20px;
+    }
+
+    /* 平板设备 (768px - 1024px) */
+    @media screen and (max-width: 1024px) {
+        .verify-box {
+            padding: 30px 0 !important;
+            min-height: 900px;
+        }
+
+        .verify-box-inner {
+            width: 95%;
+        }
+
+        .code-card {
+            padding: 40px;
+            margin: 30px 40px 50px 40px;
+            min-height: 600px;
+        }
+
+        .logo-img {
+            max-width: 130px;
+            margin: 0 0 0 40px !important;
+        }
+
+        .top-msg {
+            font-size: 28px;
+        }
+
+        .code-card .notice-text {
+            font-size: 22px;
+            margin-bottom: 25px !important;
+        }
+
+        .msg {
+            font-size: 18px;
+            line-height: 28px;
+        }
+
+        .verify-content {
+            margin-bottom: 60px;
+        }
+    }
+
+    /* 手机设备 (最大 768px) */
+    @media screen and (max-width: 768px) {
+        .verify-box {
+            padding: 20px 0 !important;
+            min-height: 700px;
+            background-size: cover;
+        }
+
+        .verify-box-inner {
+            width: 98%;
+        }
+
+        .code-card {
+            padding: 25px;
+            margin: 20px 30px 40px 30px;
+            min-height: 500px;
+            border-radius: 8px;
+        }
+
+        .logo-img {
+            max-width: 110px;
+            margin: 0 0 0 30px !important;
+        }
+
+        .top-msg {
+            font-size: 24px;
+            margin-bottom: 15px !important;
+        }
+
+        .code-card .notice-text {
+            font-size: 18px;
+            margin-bottom: 20px !important;
+            line-height: 26px;
+        }
+
+        .msg {
+            font-size: 16px;
+            line-height: 24px;
+            margin-bottom: 6px;
+        }
+
+        .verify-content {
+            margin-bottom: 40px;
+        }
+
+        .bottom-box>img {
+            max-width: 250px;
+            margin-top: 15px;
+        }
+    }
+
+    /* 小屏手机设备 (最大 480px) */
+    @media screen and (max-width: 480px) {
+        .verify-box {
+            padding: 15px 0 !important;
+            min-height: 600px;
+        }
+
+        .verify-box-inner {
+            width: 100%;
+        }
+
+        .code-card {
+            padding: 20px;
+            margin: 15px 20px 30px 20px;
+            min-height: 400px;
+            border-radius: 6px;
+        }
+
+        .logo-img {
+            max-width: 90px;
+            margin: 0 0 0 20px !important;
+        }
+
+        .top-msg {
+            font-size: 20px;
+            margin-bottom: 12px !important;
+        }
+
+        .code-card .notice-text {
+            font-size: 16px;
+            margin-bottom: 18px !important;
+            line-height: 24px;
+        }
+
+        .msg {
+            font-size: 14px;
+            line-height: 22px;
+            margin-bottom: 5px;
+        }
+
+        .verify-content {
+            margin-bottom: 30px;
+        }
+
+        .bottom-box>img {
+            max-width: 200px;
+            margin-top: 12px;
+        }
+    }
+
+    /* 超小屏设备 (最大 320px) */
+    @media screen and (max-width: 320px) {
+        .code-card {
+            padding: 15px;
+            margin: 10px 15px;
+        }
+
+        .logo-img {
+            margin-left: 15px;
+            max-width: 80px;
+        }
+
+        .top-msg {
+            font-size: 18px;
+        }
+
+        .code-card .notice-text {
+            font-size: 14px;
+            line-height: 20px;
+        }
+
+        .msg {
+            font-size: 12px;
+            line-height: 18px;
+        }
+
+        .bottom-box>img {
+            max-width: 180px;
+        }
     }
 </style>
