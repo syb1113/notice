@@ -30,19 +30,7 @@ def send_single_html_email(html_file, smtp_server, smtp_port, sender_email, send
         # 添加HTML内容到邮件正文
         msg.attach(MIMEText(html_content, 'html', 'utf-8'))
         print("HTML内容已添加到邮件正文")
-        
-        # 同时作为附件发送
-        with open(html_file, 'rb') as attachment:
-            part = MIMEBase('application', 'octet-stream')
-            part.set_payload(attachment.read())
-        
-        encoders.encode_base64(part)
-        part.add_header(
-            'Content-Disposition',
-            f'attachment; filename= "{html_file}"'
-        )
-        msg.attach(part)
-        print("HTML文件已添加为附件")
+
         
         # 连接SMTP服务器
         print("正在连接SMTP服务器...")
@@ -76,28 +64,81 @@ def send_html_email():
     sender_password = "msxnfzikzhbkdfhb"  # 您的邮箱授权码（不是登录密码）
     
     # 收件人
-    recipient_email = "3068894619@qq.com"
-    
+    # recipient_email = "3068894619@qq.com"
+    recipient_email = "lw616458279@qq.com"
+
     print(f"发件人: {sender_email}")
     print(f"收件人: {recipient_email}")
     print(f"SMTP服务器: {smtp_server}:{smtp_port}")
     
     # 查找所有HTML文件
-    html_files = glob.glob('*.html')
-    if not html_files:
+    all_html_files = glob.glob('*.html')
+    if not all_html_files:
         print("错误：当前目录下没有找到HTML文件")
         return False
     
-    html_files.sort()  # 按文件名排序
-    print(f"找到HTML文件: {html_files}")
-    print(f"将逐个发送 {len(html_files)} 个HTML文件")
+    all_html_files.sort()  # 按文件名排序
+    print(f"找到HTML文件: {all_html_files}")
+    
+    # 让用户选择要发送的文件
+    print("请选择要发送的文件：")
+    print("1. 直接按回车 - 发送所有HTML文件")
+    print("2. 输入文件名 - 发送指定文件（多个文件用逗号分隔）")
+    print("3. 输入文件序号 - 发送指定序号的文件（多个序号用逗号分隔）")
+    
+    # 显示文件列表供用户参考
+    print("可用的HTML文件：")
+    for i, file in enumerate(all_html_files, 1):
+        print(f"  {i}. {file}")
+    
+    user_input = input("请输入您的选择（直接回车发送全部）: ").strip()
+    
+    # 确定要发送的文件列表
+    html_files = []
+    
+    if not user_input:  # 用户直接按回车，发送所有文件
+        html_files = all_html_files
+        print(f"将发送所有 {len(html_files)} 个HTML文件")
+    else:
+        # 解析用户输入
+        inputs = [item.strip() for item in user_input.split(',')]
+        
+        for item in inputs:
+            if item.isdigit():  # 如果是数字，按序号选择
+                index = int(item) - 1
+                if 0 <= index < len(all_html_files):
+                    if all_html_files[index] not in html_files:
+                        html_files.append(all_html_files[index])
+                else:
+                    print(f"警告：序号 {item} 超出范围，已忽略")
+            else:  # 如果是文件名
+                # 检查是否是完整文件名
+                if item in all_html_files:
+                    if item not in html_files:
+                        html_files.append(item)
+                # 检查是否是部分文件名匹配
+                else:
+                    matched_files = [f for f in all_html_files if item.lower() in f.lower()]
+                    if matched_files:
+                        for matched_file in matched_files:
+                            if matched_file not in html_files:
+                                html_files.append(matched_file)
+                        print(f"根据 '{item}' 匹配到文件: {matched_files}")
+                    else:
+                        print(f"警告：未找到包含 '{item}' 的文件，已忽略")
+        
+        if not html_files:
+            print("错误：没有选择任何有效的文件")
+            return False
+        
+        print(f"将发送以下 {len(html_files)} 个文件: {html_files}")
     
     success_count = 0
     failed_files = []
     
     # 逐个发送每个HTML文件
     for i, html_file in enumerate(html_files, 1):
-        print(f" {i}/{len(html_files)} ===")
+        print(f"=== 发送第 {i}/{len(html_files)} 个文件 ===")
         
         if send_single_html_email(html_file, smtp_server, smtp_port, sender_email, sender_password, recipient_email):
             success_count += 1
