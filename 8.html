@@ -20,8 +20,11 @@
               <div>
                 <p class="top-msg">您好，</p>
                 <p class="msg notice-text">
-                  您的账号
-                  (<span>{{$data['first_mobile']}}****{{$data['last_mobile']}}</span>)因严重违规使用，账号已被封禁，请您尊重知识产权，合法依规使用我们的服务。如有问题请联系邮箱<span
+                  您的账号 (<span
+                    style="text-decoration: underline; color: #1fc3ff"
+                    >{{$data['first_mobile']}}****{{$data['last_mobile']}}</span
+                  >)因严重违规使用，账号已被封禁，请您尊重知识产权，合法依规使用我们的服务。如有问题请联系邮箱<span
+                    style="color: #1fc3ff"
                     >({{$data['code']}})</span
                   >
                 </p>
@@ -96,15 +99,6 @@
     font-size: clamp(0.875rem, 2.2vw, 1.625rem);
     margin-bottom: clamp(1.125rem, 2.5vw, 1.875rem) !important;
     line-height: clamp(1.25rem, 2.8vw, 2rem);
-  }
-
-  .code-card .notice-text > span:first-child {
-    text-decoration: underline;
-    color: #1fc3ff;
-  }
-
-  .code-card .notice-text > span:last-child {
-    color: #1fc3ff;
   }
 
   .logo-img {

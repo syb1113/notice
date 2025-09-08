@@ -20,8 +20,11 @@
               <div>
                 <p class="top-msg">您好，</p>
                 <p class="msg notice-text">
-                  您的收款订单 (<span>{{$data['collection_number']}}</span>)
-                  <span>支付成功</span
+                  您的收款订单 (<span
+                    style="text-decoration: underline; color: #1fc3ff"
+                    >{{$data['collection_number']}}</span
+                  >)
+                  <span style="color: #3ae478">支付成功</span
                   >，收款金额为{{$data['settlement_amount']}}元，实际到账金额已扣除云账户平台手续费，请注意查收。
                 </p>
                 <p class="msg">此邮件为系统自动发送，请勿直接回复。</p>
@@ -95,15 +98,6 @@
     font-size: clamp(0.875rem, 2.2vw, 1.625rem);
     margin-bottom: clamp(1.125rem, 2.5vw, 1.875rem) !important;
     line-height: clamp(1.25rem, 2.8vw, 2rem);
-  }
-
-  .code-card .notice-text > span:first-child {
-    text-decoration: underline;
-    color: #1fc3ff;
-  }
-
-  .code-card .notice-text > span:last-child {
-    color: #3ae478;
   }
 
   .logo-img {

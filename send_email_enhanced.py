@@ -64,8 +64,8 @@ def send_html_email():
     sender_password = "msxnfzikzhbkdfhb"  # 您的邮箱授权码（不是登录密码）
     
     # 收件人
-    # recipient_email = "3068894619@qq.com"
-    recipient_email = "lw616458279@qq.com"
+    recipient_email = "3068894619@qq.com"
+    # recipient_email = "lw616458279@qq.com"
 
     print(f"发件人: {sender_email}")
     print(f"收件人: {recipient_email}")
